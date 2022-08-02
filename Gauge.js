@@ -10,7 +10,7 @@ class Gauge extends React.Component {
     static defaultProps = {
         name: 'default',
         color: 'Aquamarine',
-        mode : 'fare',
+        mode : 'equity',
         value : 50,
     };
 
@@ -62,7 +62,8 @@ class Gauge extends React.Component {
     }
 
     render() {
-        const duration = this.state.value * 0.02;
+        // const duration = this.state.value * 0.02;
+        const duration = 2000;
         return e(
             'div', {
                 className: 'gauge',
@@ -101,9 +102,11 @@ class Gauge extends React.Component {
                             display: 'inline-block',
                             position: 'inline-block',
                             width: this.state.width + '%',
+                            //width: '0%',
                             height: '100%',
                             backgroundColor: this.state.color,
                             borderRadius: Number.MAX_SAFE_INTEGER + 'px',
+                            // transition: 'width ' + duration + 'ms',
                         }
                     },
                 )
@@ -145,14 +148,32 @@ dataset = [{
     },
     {
         name: '균형',
-        value: 20,
+        value: 100,
+        mode: 'equity',
         color: 'yellow'
     },
-    {},
+    {
+        value: 80,
+        color: 'pink',
+        mode: 'equity',
+    },
     {
         name: '근력',
-        value: 80,
-        color: 'green'
+        value: 60,
+        mode: 'equity',
+        color: 'violet'
+    },
+    {
+        name: '체력',
+        value: 40,
+        mode: 'equity',
+        color: 'purple'
+    },
+    {
+        name: '체력',
+        value: 20,
+        mode: 'equity',
+        color: 'indigo'
     }
 ]
 
