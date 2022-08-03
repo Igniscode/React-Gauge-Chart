@@ -33,7 +33,6 @@ Circle.prototype.render = function(){
 
     this.angle = this.value == 0 ? 0 : (2-this.value)*Math.PI;
     this.color = 'rgb(255,' + (255 - this.value*255) + ',0)';
-    console.log(this.value);
     ctx.beginPath();
     ctx.arc(- this.x, this.y, this.radius, 0, this.angle , true);
     ctx.strokeStyle = this.color;
@@ -90,7 +89,19 @@ function execute(objects){
 
 window.onload = function () {
     canvas = document.getElementById('HalfDonut')
-    ctx = canvas.getContext('2d');
+
+    var width = 480;
+    var height = 250;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
     
+    const dpr = window.devicePixelRatio;
+    console.log(dpr)
+    canvas.width =  width * dpr;
+    canvas.height = height * dpr;
+
+    ctx = canvas.getContext('2d');
+
+    ctx.scale(dpr, dpr);
     execute();
 }
