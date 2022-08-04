@@ -11,7 +11,6 @@ function Circle(radius, value, color, lineWidth = 10){
     this.y = radius + lineWidth;
 }
 
-
 Circle.prototype.render = function(){
     ctx.save();
     ctx.scale(-1, 1);
@@ -65,10 +64,7 @@ function render(objects){
     }
 }
 
-function execute(objects){
-    var max = 100;
-    var min = 0;
-    var value = 90;
+function execute(objects, max, min = 0, value){
     var per = (value - min) / (max - min);
     
     var backgroundCircle = new Circle(200, 1, '#777',30);
@@ -80,11 +76,8 @@ function execute(objects){
         setTimeout(() => {
             valueCircle.value = i/100  + 0.01;
             render(objects);
-        }, i * frequency);
+        }, i * frequency);2
     }
-
-
-
 }
 
 window.onload = function () {
@@ -103,5 +96,6 @@ window.onload = function () {
     ctx = canvas.getContext('2d');
 
     ctx.scale(dpr, dpr);
+    
     execute();
 }

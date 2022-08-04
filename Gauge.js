@@ -123,7 +123,6 @@ class Gauge extends React.Component {
     }
 }
 
-
 /******************* Using Example *********************/
 
 dataset = [{
